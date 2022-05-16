@@ -18,10 +18,10 @@ app = Flask(__name__)
 WRml = pickle.load(open("w2r.pkl","rb"))
 
 
-@app.route('/', methods=['GET'])
+@app.route('/', methods=['GET','POST'])
 def predict():
   chicken = WRml
-  print(chicken)
+  #print(chicken)
   return jsonify(chicken)
   #'The next books you should read are:{}'.format(chicken)
   #return render_template('MLpage.js')
