@@ -18,7 +18,7 @@ app = Flask(__name__)
 WRml = pickle.load(open("w2r.pkl","rb"))
 
 
-@app.route('/', methods=['GET','POST'])
+@app.route('/recommend', methods=['GET'])
 def predict():
   chicken = WRml
   #print(chicken)
