@@ -4,8 +4,9 @@ import pandas as pd
 from sklearn.metrics.pairwise import linear_kernel
 import pickle
 import json
+import requests
 
-oop = pd.read_csv('otra.csv')
+oop = pd.read_csv('lastclean.csv')
 tfidf = TfidfVectorizer(stop_words='english')
 oop.set_index(pd.Index(range(0,len(oop),1)))
 
@@ -54,13 +55,21 @@ def join2(a, b):
   for j in a:
     shure.append(j[2])
   return(shure)
-
+'''
 bookL = open("./TestData.json")
 after = json.load(bookL)
 mon = after[0]
 jol = mon['title']
+'''
+a = requests.get('https://web-reads-backend.herokuapp.com/api/users/allusers')
+#print(a)
+sky = [f for f in dir(a)]
+#print(sky)
+dee = a.json()
+diff = dee[0]
+fin = diff['likedBooks']
 
-book = what2read(jol)
+book = what2read(fin[0])
 
 sumfile = open("w2r.pkl","wb")
 pickle.dump(book,sumfile)
