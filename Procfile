@@ -1,1 +1,1 @@
-web: gunicorn run::appml_py
+web: gunicorn app:app
