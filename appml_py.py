@@ -12,7 +12,7 @@ from flask import Flask, request, jsonify, render_template, send_from_directory
 #from flask_restful import Api, Resource, reqparse
 from flask_cors import CORS
 import pickle
-import mlfilter
+#import mlfilter
 
 app = Flask(__name__)
 CORS(app)
