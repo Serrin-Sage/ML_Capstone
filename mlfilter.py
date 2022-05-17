@@ -83,7 +83,8 @@ for fe in range(len(dee)):
 diff = dee[fe]
 fin = diff['likedBooks']
 somm = len(fin)
-book = what2read(fin[somm])
+print(fin[somm-1])
+book = what2read(fin[somm-1])
 
 sumfile = open("w2r.pkl","wb")
 pickle.dump(book,sumfile)
