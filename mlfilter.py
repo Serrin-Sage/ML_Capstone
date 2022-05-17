@@ -6,7 +6,7 @@ import pickle
 import json
 import requests
 
-oop = pd.read_csv('lastclean.csv')
+oop = pd.read_csv('otra.csv')
 tfidf = TfidfVectorizer(stop_words='english')
 oop.set_index(pd.Index(range(0,len(oop),1)))
 
@@ -61,15 +61,29 @@ after = json.load(bookL)
 mon = after[0]
 jol = mon['title']
 '''
+lgID = requests.get('https://web-reads-backend.herokuapp.com/api/users/loggedin')
+sky = [f for f in dir(lgID)]
+#print(sky)
+mede = lgID.json()
+#print(mede[0]['_id'])
 a = requests.get('https://web-reads-backend.herokuapp.com/api/users/allusers')
 #print(a)
 sky = [f for f in dir(a)]
 #print(sky)
 dee = a.json()
-diff = dee[0]
+#print(dee)
+saveN = 0
+for fe in range(len(dee)):
+  #print(dee[fe]['_id'])
+  #print(mede[0]['_id'])
+  #print('next')
+  if(dee[fe]['_id']==mede[0]['myID']):
+    print(dee[fe]['_id'])
+    saveN = fe
+diff = dee[fe]
 fin = diff['likedBooks']
-
-book = what2read(fin[0])
+somm = len(fin)
+book = what2read(fin[somm])
 
 sumfile = open("w2r.pkl","wb")
 pickle.dump(book,sumfile)

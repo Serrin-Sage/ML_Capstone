@@ -12,7 +12,7 @@ from flask import Flask, request, jsonify, render_template, send_from_directory
 #from flask_restful import Api, Resource, reqparse
 from flask_cors import CORS
 import pickle
-#import mlfilter
+import mlfilter
 
 app = Flask(__name__)
 CORS(app)
@@ -26,6 +26,11 @@ def predict():
   return jsonify(chicken)
   #'The next books you should read are:{}'.format(chicken)
   #return render_template('MLpage.js')
+'''
+@app.route('/recommend/user', methods=['POST'])
+def loggedin():
+  request.
+'''
 '''
 @app.route('/predict', methods=['POST'])
 def predict():
