@@ -63,16 +63,16 @@ jol = mon['title']
 '''
 lgID = requests.get('http://localhost:5000/api/users/loggedin')
 sky = [f for f in dir(lgID)]
-print(sky)
+#print(sky)
 mede = lgID.json()
-print(mede)
+#print(mede)
 #print(mede[0]['_id'])
 a = requests.get('http://localhost:5000/api/users/allusers')
 #print(a)
 sky = [f for f in dir(a)]
 #print(sky)
 dee = a.json()
-print('*************')
+#print('*************')
 #print(dee)
 saveN = 0
 gills = len(mede)
@@ -85,13 +85,13 @@ for fe in range(len(dee)):
     print(mede[gills-1]['myID'])
     saveN = fe
     print('heeere')
-print('*************')
+#print('*************')
 diff = dee[saveN]
-print(saveN)
+#print(saveN)
 fin = diff['likedBooks']
 somm = len(fin)
-print(fin)
-print(fin[somm-1])
+#print(fin)
+#print(fin[somm-1])
 book = what2read(fin[somm-1])
 
 sumfile = open("w2r.pkl","wb")
