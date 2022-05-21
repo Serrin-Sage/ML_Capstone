@@ -61,28 +61,36 @@ after = json.load(bookL)
 mon = after[0]
 jol = mon['title']
 '''
-lgID = requests.get('https://web-reads-backend.herokuapp.com/api/users/loggedin')
+lgID = requests.get('http://localhost:5000/api/users/loggedin')
 sky = [f for f in dir(lgID)]
-#print(sky)
+print(sky)
 mede = lgID.json()
+print(mede)
 #print(mede[0]['_id'])
-a = requests.get('https://web-reads-backend.herokuapp.com/api/users/allusers')
+a = requests.get('http://localhost:5000/api/users/allusers')
 #print(a)
 sky = [f for f in dir(a)]
 #print(sky)
 dee = a.json()
+print('*************')
 #print(dee)
 saveN = 0
+gills = len(mede)
 for fe in range(len(dee)):
   #print(dee[fe]['_id'])
   #print(mede[0]['_id'])
   #print('next')
-  if(dee[fe]['_id']==mede[0]['myID']):
+  if(dee[fe]['_id']==mede[gills-1]['myID']):
     print(dee[fe]['_id'])
+    print(mede[gills-1]['myID'])
     saveN = fe
-diff = dee[fe]
+    print('heeere')
+print('*************')
+diff = dee[saveN]
+print(saveN)
 fin = diff['likedBooks']
 somm = len(fin)
+print(fin)
 print(fin[somm-1])
 book = what2read(fin[somm-1])
 
